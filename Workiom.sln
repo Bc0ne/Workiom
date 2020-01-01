@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.960
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Domain", "1-Domain", "{891EE1B3-F5E4-46DB-A5FB-54ACCF94AF17}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Data", "2-Data", "{EE8F9BFF-49EA-40A4-B5EA-354D17A50127}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Web", "3-Web", "{D2871040-31A9-4850-8755-8C7B13B51E16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workiom.Core", "Workiom.Core\Workiom.Core.csproj", "{EF6B9679-7D4B-401F-BEB4-76C69E99ED9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workiom.Data", "Workiom.Data\Workiom.Data.csproj", "{D2F55247-1979-43CF-945E-9ADBD046740E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workiom.API", "Workiom.API\Workiom.API.csproj", "{6DAAFEF8-DA01-40AD-8161-C97719B7433A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workiom.Web.Models", "Workiom.Web.Models\Workiom.Web.Models.csproj", "{C65603C5-4470-4E7D-87C7-6A70326F8720}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF6B9679-7D4B-401F-BEB4-76C69E99ED9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF6B9679-7D4B-401F-BEB4-76C69E99ED9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF6B9679-7D4B-401F-BEB4-76C69E99ED9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF6B9679-7D4B-401F-BEB4-76C69E99ED9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F55247-1979-43CF-945E-9ADBD046740E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F55247-1979-43CF-945E-9ADBD046740E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F55247-1979-43CF-945E-9ADBD046740E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F55247-1979-43CF-945E-9ADBD046740E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DAAFEF8-DA01-40AD-8161-C97719B7433A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DAAFEF8-DA01-40AD-8161-C97719B7433A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DAAFEF8-DA01-40AD-8161-C97719B7433A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DAAFEF8-DA01-40AD-8161-C97719B7433A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C65603C5-4470-4E7D-87C7-6A70326F8720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C65603C5-4470-4E7D-87C7-6A70326F8720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C65603C5-4470-4E7D-87C7-6A70326F8720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C65603C5-4470-4E7D-87C7-6A70326F8720}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EF6B9679-7D4B-401F-BEB4-76C69E99ED9E} = {891EE1B3-F5E4-46DB-A5FB-54ACCF94AF17}
+		{D2F55247-1979-43CF-945E-9ADBD046740E} = {EE8F9BFF-49EA-40A4-B5EA-354D17A50127}
+		{6DAAFEF8-DA01-40AD-8161-C97719B7433A} = {D2871040-31A9-4850-8755-8C7B13B51E16}
+		{C65603C5-4470-4E7D-87C7-6A70326F8720} = {D2871040-31A9-4850-8755-8C7B13B51E16}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {995B396E-5731-405D-84D9-631241788779}
+	EndGlobalSection
+EndGlobal
