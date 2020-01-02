@@ -8,7 +8,7 @@
     {
         private readonly IMongoDatabase _database = null;
 
-        public WorkiomDbContext(ConnectionStringSettings connectionStringSettings)
+        public WorkiomDbContext(DatabaseSettings connectionStringSettings)
         {
             var client = new MongoClient(connectionStringSettings.ConnectionString);
             if (client != null)

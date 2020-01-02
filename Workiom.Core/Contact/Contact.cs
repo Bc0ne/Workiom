@@ -3,9 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using Company;
-    using MongoDB.Driver;
-    using MongoDB.Entities;
 
     public class Contact : DomainEntity
     {

@@ -34,8 +34,11 @@
             int idx = 0;
             foreach (var item in companies)
             {
-                var contacts = await _contactRepository.GetContactsByListOfIds(item.ContactIds);
-                result[idx].Contacts = Mapper.Map<List<ContactOutputModel>>(contacts);
+                if (item.ContactIds != null)
+                {
+                    var contacts = await _contactRepository.GetContactsByListOfIdsAsync(item.ContactIds);
+                    result[idx].Contacts = Mapper.Map<List<ContactOutputModel>>(contacts);
+                }
                 idx++;
             }
             return Ok(ResponseResult.SucceededWithData(result));
@@ -53,14 +56,16 @@
 
             if (company is null)
             {
-                return NotFound(ResponseResult.Failed(ErrorCode.Error, "no hit information"));
+                return NotFound(ResponseResult.Failed(ErrorCode.Error, "Company isn't found."));
             }
-
-            var contacts = await _contactRepository.GetContactsByListOfIds(company.ContactIds);
 
             var result = Mapper.Map<CompanyOutputModel>(company);
 
-            result.Contacts = Mapper.Map<List<ContactOutputModel>>(contacts);
+            if (company.ContactIds != null)
+            {
+                var contacts = await _contactRepository.GetContactsByListOfIdsAsync(company.ContactIds);
+                result.Contacts = Mapper.Map<List<ContactOutputModel>>(contacts);
+            }
 
             return Ok(ResponseResult.SucceededWithData(result));
         }
@@ -94,7 +99,7 @@
 
             if (company is null)
             {
-                return NotFound(ResponseResult.Failed(ErrorCode.Error, "no hit information"));
+                return NotFound(ResponseResult.Failed(ErrorCode.Error, "Company isn't found."));
             }
 
             if (string.IsNullOrEmpty(model.ContactId))
@@ -106,18 +111,18 @@
 
             if (contact is null)
             {
-                return NotFound(ResponseResult.Failed(ErrorCode.Error, "no hit information"));
+                return NotFound(ResponseResult.Failed(ErrorCode.Error, "Contact isn't found."));
             }
 
-            var isExist = company.ContactIds.FirstOrDefault(x => x == model.ContactId);
+            var isExist = company.ContactIds != null ? company.ContactIds.FirstOrDefault(x => x == model.ContactId) : null;
 
             if (isExist != null)
             {
                 return BadRequest(ResponseResult.Failed(ErrorCode.Error, "Contact is already exist."));
             }
 
-            company.ContactIds.Add(model.ContactId);
-            contact.CompanyIds.Add(company.Id);
+            company.AddContact(model.ContactId);
+            contact.AddCompany(company.Id);
 
             await _companyRepository.UpdateCompanyAsync(company);
             await _contactRepository.UpdateContactAsync(contact);
@@ -138,7 +143,7 @@
 
             if (company is null)
             {
-                return NotFound(ResponseResult.Failed(ErrorCode.Error, "no hit information"));
+                return NotFound(ResponseResult.Failed(ErrorCode.Error, "Company isn't found."));
             }
 
             company.Delete();

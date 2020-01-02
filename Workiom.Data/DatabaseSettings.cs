@@ -1,6 +1,6 @@
 ﻿namespace Workiom.Data
 {
-    public class ConnectionStringSettings
+    public class DatabaseSettings
     {
         public string ConnectionString { get; set; }
         public string Database { get; set; }

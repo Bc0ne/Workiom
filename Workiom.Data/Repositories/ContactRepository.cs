@@ -34,7 +34,7 @@
             await _context.Contacts.InsertOneAsync(contact);
         }
 
-        public async Task<IEnumerable<Contact>> GetContactsByListOfIds(ICollection<string> ids)
+        public async Task<IEnumerable<Contact>> GetContactsByListOfIdsAsync(ICollection<string> ids)
         {
             var filter = Builders<Contact>.Filter.And(
                 Builders<Contact>.Filter.Where(x => !x.IsDeleted),

@@ -1,13 +1,12 @@
 ﻿namespace Workiom.API
 {
-    using Autofac;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Options;
-    using MongoDB.Entities;
+    using Autofac;
     using Swashbuckle.AspNetCore.Swagger;
     using Workiom.API.Bootstraper;
     using Workiom.API.Filters;
@@ -32,13 +31,11 @@
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.Configure<ConnectionStringSettings>(
+            services.Configure<DatabaseSettings>(
         Configuration.GetSection("ConnectionStrings"));
 
-            services.AddSingleton<ConnectionStringSettings>(sp =>
-                sp.GetRequiredService<IOptions<ConnectionStringSettings>>().Value);
-
-            //services.AddMongoDBEntities("WorkiomDb", "127.0.0.1", 27017);
+            services.AddSingleton(sp =>
+                sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
             services.AddCors(options =>
             {

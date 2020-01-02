@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-
-namespace Workiom.API.Bootstraper
+﻿namespace Workiom.API.Bootstraper
 {
+    using AutoMapper;
+
     public static class AutoMapperConfig
     {
         /// <summary>
